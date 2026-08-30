@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Complaint Submitted</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<header>
+
+    <nav>
+
+        <div class="logo">
+            NCC Grievance Portal
+        </div>
+
+        <div class="nav-links">
+
+            <a href="/">
+                Home
+            </a>
+
+        </div>
+
+    </nav>
+
+</header>
+
+
+<main>
+
+    <section class="confirmation">
+
+        <div class="success-icon">
+            ✓
+        </div>
+
+        <p class="tagline">
+            CASE REGISTERED
+        </p>
+
+        <h1>
+            Your grievance has been submitted.
+        </h1>
+
+        <p>
+            Your complaint has been registered successfully.
+            Please save your Case ID for future tracking.
+        </p>
+
+
+        <div class="case-number-box">
+
+            <span>
+                YOUR CASE ID
+            </span>
+
+            <strong>
+                {{ case_id }}
+            </strong>
+
+        </div>
+
+
+        <div class="privacy-note">
+
+            <strong>Important</strong>
+
+            <p>
+                Keep your Case ID private. In the production
+                version, this ID will be used to access the
+                status and updates of your complaint.
+            </p>
+
+        </div>
+
+
+        <a href="/" class="primary-btn">
+            Return Home
+        </a>
+
+    </section>
+
+</main>
+
+</body>
+
+</html>

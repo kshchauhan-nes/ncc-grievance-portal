@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Submit Grievance</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <header>
+        <nav>
+
+            <div class="logo">
+                NCC Grievance Portal
+            </div>
+
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/complaint">Submit Grievance</a>
+            </div>
+
+        </nav>
+    </header>
+
+
+    <main>
+
+        <section class="complaint-page">
+
+            <p class="tagline">
+                NEW GRIEVANCE
+            </p>
+
+            <h1>
+                Submit a grievance
+            </h1>
+
+            <p class="description">
+                Provide the details of the concern. You can submit
+                a complaint affecting an individual or a group.
+            </p>
+
+
+            <form method="POST">
+
+                <h2>Complaint Type</h2>
+
+                <div class="choice-container">
+
+                    <label class="choice">
+                        <input type="radio"
+                               name="complaint_type"
+                               value="Individual"
+                               checked>
+
+                        <span>
+                            <strong>Individual</strong>
+                            <small>
+                                Concern primarily affecting one cadet.
+                            </small>
+                        </span>
+                    </label>
+
+
+                    <label class="choice">
+                        <input type="radio"
+                               name="complaint_type"
+                               value="Group">
+
+                        <span>
+                            <strong>Group</strong>
+                            <small>
+                                Concern affecting multiple cadets.
+                            </small>
+                        </span>
+                    </label>
+
+                </div>
+
+
+                <h2>NCC Information</h2>
+
+                <label>
+                    College / Institution *
+
+                    <input type="text"
+                           name="institution"
+                           placeholder="Enter your college"
+                           required>
+                </label>
+
+
+                <label>
+                    NCC Unit / Battalion
+
+                    <input type="text"
+                           name="unit"
+                           placeholder="Optional">
+                </label>
+
+
+                <label>
+                    Complaint Category *
+
+                    <select name="category" required>
+
+                        <option value="">
+                            Select a category
+                        </option>
+
+                        <option>
+                            Unfair treatment
+                        </option>
+
+                        <option>
+                            Misuse of authority
+                        </option>
+
+                        <option>
+                            Attendance / training concern
+                        </option>
+
+                        <option>
+                            Harassment or intimidation
+                        </option>
+
+                        <option>
+                            Disciplinary concern
+                        </option>
+
+                        <option>
+                            Camp-related concern
+                        </option>
+
+                        <option>
+                            Other NCC grievance
+                        </option>
+
+                    </select>
+
+                </label>
+
+
+                <label>
+                    Incident Date
+
+                    <input type="date"
+                           name="incident_date">
+                </label>
+
+
+                <label>
+                    What happened? *
+
+                    <textarea
+                        name="description"
+                        rows="8"
+                        placeholder="Describe the incident factually..."
+                        required></textarea>
+
+                </label>
+
+
+                <div class="privacy-note">
+
+                    <strong>Privacy reminder</strong>
+
+                    <p>
+                        Only include information necessary to explain
+                        the grievance. Avoid unnecessary personal
+                        information about yourself or others.
+                    </p>
+
+                </div>
+
+
+                <button type="submit"
+                        class="primary-btn">
+                    Submit Grievance
+                </button>
+
+            </form>
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Track Case</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<header>
+
+    <nav>
+
+        <div class="logo">
+            NCC Grievance Portal
+        </div>
+
+        <div class="nav-links">
+
+            <a href="/">
+                Home
+            </a>
+
+            <a href="/complaint">
+                Submit Grievance
+            </a>
+
+        </div>
+
+    </nav>
+
+</header>
+
+
+<main>
+
+<section class="track-page">
+
+    <p class="tagline">
+        CASE TRACKING
+    </p>
+
+    <h1>
+        Track your grievance
+    </h1>
+
+    <p class="description">
+        Enter your Case ID to check the current status
+        of your complaint.
+    </p>
+
+
+    <form method="POST">
+
+        <label>
+
+            Case ID
+
+            <input
+                type="text"
+                name="case_id"
+                placeholder="NCC-XXXXXXXX"
+                required
+            >
+
+        </label>
+
+
+        <button
+            type="submit"
+            class="primary-btn">
+
+            Track Case
+
+        </button>
+
+    </form>
+
+
+    {% if complaint %}
+
+<div class="case-result">
+
+    <p class="tagline">
+        CASE FOUND
+    </p>
+
+    <h2>
+        {{ complaint["case_id"] }}
+    </h2>
+
+    <div class="current-status">
+
+        <span>
+            CURRENT STATUS
+        </span>
+
+        <strong>
+            {{ complaint["status"] }}
+        </strong>
+
+    </div>
+
+
+    <div class="case-info">
+
+        <p>
+            <strong>Category</strong>
+
+            <span>
+                {{ complaint["category"] }}
+            </span>
+        </p>
+
+
+        <p>
+            <strong>Institution</strong>
+
+            <span>
+                {{ complaint["institution"] }}
+            </span>
+        </p>
+
+
+        <p>
+            <strong>Submitted</strong>
+
+            <span>
+                {{ complaint["created_at"] }}
+            </span>
+        </p>
+
+    </div>
+
+
+    <div class="timeline-section">
+
+        <h3>
+            Case Timeline
+        </h3>
+
+
+        {% for event in events %}
+
+        <div class="case-event">
+
+            <div class="event-marker">
+                ✓
+            </div>
+
+            <div class="event-content">
+
+                <strong>
+                    {{ event["event"] }}
+                </strong>
+
+                <small>
+                    {{ event["created_at"] }}
+                </small>
+
+                <p>
+                    {{ event["description"] }}
+                </p>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+    {% endif %}
+
+
+    {% if error %}
+
+        <div class="error-message">
+
+            {{ error }}
+
+        </div>
+
+    {% endif %}
+
+
+</section>
+
+</main>
+
+</body>
+
+</html>
